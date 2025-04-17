@@ -1,5 +1,5 @@
 # Code_Mystics
-# 🧠 AI Waste Monitoring System 
+# 🧠 AI Powered Waste Monitoring System 
 
 This project is a smart waste management web application designed to help municipal administrators monitor and manage garbage and spill detection tasks using AI-powered CCTV cameras. The system automates the process of detection, reporting, crew assignment, and real-time monitoring.
 
