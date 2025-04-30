@@ -71,7 +71,7 @@ def send_detection_alert_email(snapshot_path, location_link, timestamp, crew):
 def send_admin_alert_email(snapshot_path, location_link, timestamp):
     subject = "🚨 No Available Crew: Garbage/Spill Detected"
     from_email = settings.DEFAULT_FROM_EMAIL
-    admin_email = "nkale882@gmail.com"  # Replace with actual admin email
+    admin_email = "gmail.com"  # Replace with actual admin email
 
     text_content = f"""
     Hello Admin,
