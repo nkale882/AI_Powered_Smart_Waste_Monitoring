@@ -21,8 +21,8 @@ from django.core.mail import EmailMultiAlternatives
 
 # Paths & Configs
 IP_CAM_URL = 'http://192.0.0.4:8080/video'
-MODEL_PATH_1 = 'C:/Users/nilesh/Smart_Waste_Management/swm_app/models/best_garbage.pt'
-MODEL_PATH_2 = 'C:/Users/nilesh/Smart_Waste_Management/swm_app/models/best_Spills.pt'
+MODEL_PATH_1 = 'best_garbage.pt'
+MODEL_PATH_2 = 'best_Spills.pt'
 SNAPSHOT_DIR = 'media/detections'
 os.makedirs(SNAPSHOT_DIR, exist_ok=True)
 
@@ -62,7 +62,7 @@ def find_nearest_crew(lat, lon):
 def send_email_with_image(snapshot_path, location_link, timestamp, crew=None):
     subject = "🚨 Garbage/Spill Detected"
     from_email = settings.DEFAULT_FROM_EMAIL
-    to_email = [crew.email] if crew else ["nkale882@gmail.com"]
+    to_email = [crew.email] if crew else ["Admin mail"]
     name = crew.full_name if crew else "Admin"
 
     text = f"""Hello {name},
