@@ -1,52 +1,175 @@
-# Code_Mystics
-# 🧠 AI Powered Waste Monitoring System 
+# ♻️ AI-Powered Waste Monitoring System
 
-This project is a smart waste management web application designed to help municipal administrators monitor and manage garbage and spill detection tasks using AI-powered CCTV cameras. The system automates the process of detection, reporting, crew assignment, and real-time monitoring.
+An intelligent real-time garbage detection and alert system using AI, live video feeds, and GPS-based crew assignment, aimed at transforming urban sanitation and cleanliness.
 
-## 🚀 Features
+---
 
-- ✅ **Admin Dashboard**: Clean UI with sections for profile, crew management, detection status, system logs, and complaints.
-- 📸 **AI Detection**: Live monitoring of spills and garbage using YOLO-based object detection models.
-- 👷 **Crew Management**:
-  - View all cleaning crew members.
-  - Assign area and salary for unverified members.
-  - Verify crew members directly via the dashboard.
-- 📍 **Location-Based Assignment**: Detection events are assigned to the nearest available crew.
-- 📨 **Email Alerts**: Admin is notified via email upon new detections and assignments.
-- 📊 **System Logs**: Track detection history and crew performance.
-- 💬 **Complain Box**: Handle user and crew feedback efficiently.
+## 📌 Project Overview
 
-## 🛠️ Tech Stack
+The AI-Powered Waste Monitoring System automates the detection of garbage using CCTV or IP/mobile camera feeds and alerts cleaning crew in real-time. It uses YOLOv8 for object detection and Django for backend services to track, manage, and respond to hygiene issues efficiently across urban and institutional campuses.
 
-- **Backend**: Django (Python)
-- **Frontend**: HTML, CSS, JavaScript (Vanilla)
-- **AI Model**: YOLOv8 (Trained for garbage and spill detection)
-- **Database**: SQLite (default, can be upgraded to PostgreSQL)
-- **Deployment**: Localhost / can be deployed to any WSGI-compatible server
+---
 
+## 💡 Features
 
+- ✅ **Live Garbage Detection** via CCTV, IP, or mobile camera feed  
+- 🗺️ **GPS & Location Tracking** with Google Maps integration  
+- 📷 **Snapshot Capture** of the detected scene  
+- ✉️ **Email Alerts** to the nearest available cleaning crew  
+- 📋 **Admin Dashboard** to monitor crew, logs, complaints, and resource data  
+- 🔄 **Automatic Task Assignment** using proximity and crew availability  
+- 🧹 **Crew Verification & Salary Assignment** through admin panel  
+- 🕒 **Detection Log History** and crew performance tracking  
 
-## 📦 How to Use This ZIP File
+---
 
-Before running the project, you must extract the zip file properly.
+## 🏗️ System Architecture
 
-### 🗂️ Step 1: Extract the ZIP File
+```mermaid
+graph LR
+A[Live Camera Feed] --> B[YOLOv8 Detection]
+B --> C[Garbage Detected?]
+C -- Yes --> D[Capture Image + Timestamp]
+D --> E[Get Location]
+E --> F[Find Nearest Verified Crew]
+F --> G[Assign Task & Log]
+G --> H[Send Email Alert]
+C -- No --> I[Continue Monitoring]
+```
 
-#### 🔹 Windows
+---
 
-1. Right-click the ZIP file → Select **Extract All**.
-2. Choose a destination folder (e.g., `C:\Projects\waste-management-dashboard`) → Click **Extract**.
+## 🧰 Technology Stack
 
-#### 🔹 macOS
+| Layer            | Technologies Used                     |
+|------------------|----------------------------------------|
+| **Frontend**     | HTML, CSS, JavaScript                 |
+| **Backend**      | Django, Django REST Framework         |
+| **AI Model**     | YOLOv8 (Ultralytics)                  |
+| **Live Feed**    | OpenCV                                |
+| **Database**     | PostgreSQL                            |
+| **Email Alerts** | SMTP (Gmail Integration)              |
+| **Location APIs**| Google Maps + IPinfo                  |
+| **Deployment**   | Localhost                             |
 
-1. Double-click the ZIP file.
-2. The extracted folder will appear in the same directory.
+---
 
-#### 🔹 Linux (Ubuntu/Debian)
+## 📁 Project Structure
 
-Use the `unzip` command in the terminal:
+```
+Smart_Waste_Management/
+│
+├── swm_app/
+│   ├── templates/
+│   │   ├── index.html
+│   │   └── adminHome.html
+│   ├── static/
+│   │   └── styles.css, adminHome.css
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── detection_scripts/
+│       └── live_detection.py
+│
+├── media/
+│   └── detections/
+├── smart_waste_management_project/
+│   └── settings.py, urls.py
+├── manage.py
+└── README.md
+```
+
+---
+
+## 🚀 How to Run
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/nkale882/AI_Powered_Smart_Waste_Monitoring.git
+   cd smart-waste-monitoring
+   ```
+
+2. **Create and Activate Virtual Environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # or venv\Scripts\activate on Windows
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up PostgreSQL Database**
+   - Create DB: `swm_db`
+   - Update `settings.py` with your DB credentials
+
+5. **Run Migrations**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+6. **Start the Server**
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Access the Web App**
+   Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser
+
+---
+
+## 📷 Run Real-Time Garbage Detection
 
 ```bash
-unzip waste-management-dashboard.zip
-cd waste-management-dashboard
+python swm_app/detection_scripts/live_detection.py
+```
 
+Make sure:
+- YOLOv8 model
+- Email credentials are set correctly in `settings.py`
+- Camera feed (local or mobile) is accessible
+
+---
+
+## 👨‍💻 Admin Functionalities
+
+- View real-time detections
+- Verify crew members and assign salaries
+- Monitor complaint box and detection logs
+- Assign tasks automatically or manually
+
+---
+
+## 🌍 Use Case
+
+- Urban Municipal Corporations
+- Institutional Campuses
+- Airports, Malls, and Smart Cities
+- Industrial Parks and SEZs
+
+---
+
+## 📈 Future Scope
+
+- Add spill detection as a separate model  
+- SMS and Telegram bot integration  
+- Route optimization using Google Directions API  
+- Predictive analytics for waste trends  
+
+---
+
+## 🔐 Credentials & Security
+
+- Use **environment variables** for email and DB passwords  
+- Enable 2FA and **App Password** for Gmail SMTP  
+- Store `.pt` model file securely, avoid committing to Git  
+
+---
+
+## 📜 License
+
+MIT License. Free to use and modify with credits.
+
+---
