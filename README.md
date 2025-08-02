@@ -132,6 +132,9 @@ Make sure:
 - Camera feed (local or mobile) is accessible
 
 ---
+
+## Results
+
 <img width="532" height="291" alt="image" src="https://github.com/user-attachments/assets/bf38d689-f96c-48c7-8ace-fb42aeae6885" />
 
 <img width="500" height="690" alt="image" src="https://github.com/user-attachments/assets/7e913517-f81c-425e-950f-416b0d526450" />
@@ -145,7 +148,6 @@ Make sure:
 
 ---
 
-## Results
 <img width="469" height="606" alt="image" src="https://github.com/user-attachments/assets/fd339f66-2913-468e-81ae-75fca52cbbd2" />
 
 <img width="460" height="606" alt="image" src="https://github.com/user-attachments/assets/7b682a7d-16a9-44aa-bcec-dfae195d18f2" />
